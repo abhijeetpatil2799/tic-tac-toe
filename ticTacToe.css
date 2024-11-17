@@ -1,0 +1,21 @@
+.first-row,
+.second-row,
+.third-row {
+  display: flex;
+  flex-direction: row;
+  height: 120px;
+  width: 360px;
+}
+
+.first-row > .first-child,
+.second-row > .second-child,
+.third-row > .third-child {
+  font-weight: bold;
+  font-size: 60px;
+  display: flex;
+  height: 120px;
+  width: 120px;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+}
