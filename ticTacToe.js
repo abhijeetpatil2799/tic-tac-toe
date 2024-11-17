@@ -1,5 +1,21 @@
 let textFlag = true;
 
+function onResetButtonClick() {
+  textFlag = true;
+  document.getElementById("first-1").textContent = "";
+  document.getElementById("first-2").textContent = "";
+  document.getElementById("first-3").textContent = "";
+  document.getElementById("second-1").textContent = "";
+  document.getElementById("second-2").textContent = "";
+  document.getElementById("second-3").textContent = "";
+  document.getElementById("third-1").textContent = "";
+  document.getElementById("third-2").textContent = "";
+  document.getElementById("third-3").textContent = "";
+
+  document.getElementById("main").style.pointerEvents = "all";
+  document.getElementById("main").style.opacity = "100%";
+}
+
 function gapOf3(arr) {
   const firstele = arr[0];
   return arr.includes(firstele + 3) && arr.includes(firstele + 6)
@@ -91,7 +107,7 @@ function checkWinCondition() {
 
   if (gapOf3(XKeys) || gapOf4(XKeys) || gapOf1(XKeys)) {
     document.getElementById("main").style.pointerEvents = "none";
-    document.getElementById("main").style.opacity = " 50%";
+    document.getElementById("main").style.opacity = "50%";
     alert("X is a winner");
   }
 
@@ -107,8 +123,10 @@ function onChildClick(child) {
   if (textCon == "" || textCon == undefined) {
     document.getElementById(child).textContent = textFlag ? "X" : "O";
     textFlag = !textFlag;
+    setTimeout(() => {
+      checkWinCondition();
+    }, 100);
   } else {
     alert("not here");
   }
-  checkWinCondition();
 }
